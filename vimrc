@@ -26,8 +26,7 @@ endif
 
 " Execute configuration in config-bits
 let s:cfg_bits_path = g:vim_home . '/config-bits'
-for s:cfg_file in sort(
-		\ split( glob( s:cfg_bits_path . '/??-?*.vim' ) , "\n" ) )
+let s:cfg_files = glob( s:cfg_bits_path . '/??-?*.vim' )
+for s:cfg_file in sort( split( s:cfg_files , "\n" ) )
 	execute 'source ' . s:cfg_file
 endfor
-
