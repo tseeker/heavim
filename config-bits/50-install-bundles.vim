@@ -16,16 +16,8 @@ NeoBundleCheck
 " Call hooks on reload
 if !has( "vim_starting" )
 	call neobundle#call_hook( "on_source" )
+	call neobundle#call_hook( "on_post_source" )
 endif
-
-" Load configuration files for all installed plugins
-let s:binit_dir = g:vim_home . "/bundles-init"
-for s:pcfn in glob( s:binit_dir . "/*.cfg.vim" , 0 , 1 )
-	let s:pname = fnamemodify( s:pcfn , ":t:r:r" )
-	if neobundle#is_installed( s:pname )
-		execute "source" s:pcfn
-	endif
-endfor
 
 " Restore filetype settings
 if ! s:has_fti
