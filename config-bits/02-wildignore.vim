@@ -1,0 +1,9 @@
+set wildignore=""			" Clear it
+set wildignore+=.git,.svn		" Version control
+set wildignore+=*.o,*.lo,*.obj		" Object files
+set wildignore+=*.so,*.so.*,*.a,*.la	" Compiled libraries
+set wildignore+=*.dll,*.exe		" Windows libraries and executables
+set wildignore+=.*.d,.deps		" Dependency files
+set wildignore+=.*.sw?,*~,*.bak		" Various temporary files
+set wildignore+=*.class			" Compiled Java classes
+set wildignore+=*.pyc			" Python byte code
