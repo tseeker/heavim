@@ -59,7 +59,9 @@ catch /.*/
 endtry
 echo " -> Using local configuration."
 echo " "
+
 let g:vim_local_path = fnamemodify( ".vim.local" , ":p" )
+let &g:runtimepath = &g:runtimepath . "," . g:vim_local_path
 
 " Source it
 source .vim.local/vimrc
