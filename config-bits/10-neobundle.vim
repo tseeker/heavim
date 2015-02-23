@@ -1,8 +1,17 @@
 " Load and initialise NeoBundle and plugins
 
 if !exists( "g:bundles_dir" )
-	let g:bundles_dir = g:vim_vardata . "/bundles/"
-elseif g:bundles_dir !~ "/$"
+	if exists( "g:vim_local['local_bundles']" )
+		if !exists( "g:vim_local['vardata']" )
+			echo "Local bundles requested, but local data directory is not set."
+		endif
+		let g:bundles_dir = GetVardataPath( "bundles" )
+	else
+		let g:bundles_dir = g:vim_vardata . "/bundles/"
+	endif
+endif
+
+if g:bundles_dir !~ "/$"
 	let g:bundles_dir = g:bundles_dir . "/"
 endif
 if !CreateDirectoryIfNecessary( g:bundles_dir )
