@@ -37,7 +37,7 @@ call neobundle#begin( g:bundles_dir )
 " Load NeoBundle itself, as well as VimProc
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Load all plugins from bundles-init/*.load
+" Load all plugins from bundles-init/*.load.vim
 let s:binit_dir = g:vim_home . "/bundles-init"
 for s:plfn in glob( s:binit_dir . "/*.load.vim" , 0 , 1 )
 	execute "source" s:plfn
@@ -47,8 +47,9 @@ for s:plfn in glob( s:binit_dir . "/*.load.vim" , 0 , 1 )
 	let s:bundle = neobundle#get( s:pname )
 
 	function! s:bundle.hooks.on_post_source( bundle )
-		let cfgfile = s:binit_dir . "/" . a:bundle.name . ".cfg.vim"
-		if filereadable( l:cfgfile )
+		let cfgfile = GetConfigFilePath( "bundles-init" ,
+			\ a:bundle.name . ".cfg.vim" )
+		if l:cfgfile != ""
 			execute "source" l:cfgfile
 		endif
 	endfunction
