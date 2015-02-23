@@ -1,5 +1,4 @@
 " Load and initialise NeoBundle and plugins
-echo "location"
 
 if !exists( "g:bundles_dir" )
 	if exists( "g:vim_local['local_bundles']" )
