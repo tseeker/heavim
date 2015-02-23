@@ -1,16 +1,12 @@
 " Attempt to find a local configuration or configuration directory
 
 " Clear various things that could be here from a previous execution
-if exists( "g:vim_local" )
-	unlet g:vim_local
-endif
-if exists( "g:vim_local_path" )
-	unlet g:vim_local_path
-endif
-if exists( "*CheckAndSignLocalVimrc" )
-	function! CheckAndSignLocalVimrc(fname)
-	endfunction
-endif
+unlet! g:vim_local
+unlet! g:vim_local_path
+command! -bang -nargs=* SaveAndSign echoerr "Command not supported"
+command! -bang -nargs=* SignConfig echoerr "Command not supported"
+
+" Clear configuration signing autocommands
 augroup LocalConfigurationSigning
 	autocmd!
 augroup END
@@ -36,10 +32,88 @@ function! GetVardataPath(name)
 	return g:vim_vardata . "/" . a:name
 endfunction
 
-" We need signature handling abilities for that
+" We need signature handling abilities to continue
 if !exists( "g:vim_keys" )
 	finish
 endif
+
+" When a .vim.local/vimrc file is saved,  print a warning about the lack of
+" signature.
+function! <SID>WarnAboutSignature()
+	let bp = expand( "%:p:h" )
+	if fnamemodify( bp , ":t" ) == ".vim.local"
+		if exists( "g:vim_local_path" )
+			let bp = l:bp . "/"
+			if g:vim_local_path =~ "/$" && l:bp !~ "/$"
+				let l:bp = l:bp . "/"
+			elseif g:vim_local_path !~ "/$" && l:bp =~ "/$"
+				let l:bp = l:bp[ 0 : -2 ]
+			endif
+		endif
+
+		" If we're being called from SaveAndSign, sign it instead of
+		" whining.
+		if exists( "s:save_and_sign" )
+			call SignFile( expand( "%:p" ) , l:bp . "/signature" )
+			return
+		endif
+
+		echohl WarningMsg
+		if exists( "g:vim_local_path" ) && g:vim_local_path == l:bp
+			echo "Warning: not signed, use :SignConfig"
+		else
+			echo "Warning: not signed, use :SaveAndSign."
+		endif
+		echohl None
+	endif
+endfunction
+
+augroup LocalConfigurationSigning
+	autocmd BufWritePost vimrc :call <SID>WarnAboutSignature()
+augroup END
+
+" Sign the local configuration file; only works when one has already been
+" loaded.
+function! <SID>SignConfig()
+	if exists( "g:vim_local_path" ) && filereadable( g:vim_local_path . "/vimrc" )
+		call SignFile( g:vim_local_path . "/vimrc" ,
+			     \ g:vim_local_path . "/signature" )
+	elseif exists( "g:vim_local_path" )
+		echohl ErrorMsg
+		echo "ERROR: no local vimrc file"
+		echohl None
+	else
+		echohl ErrorMsg
+		echo "ERROR: no local configuration; use :SaveAndSign for new configurations"
+		echohl None
+	endif
+endfunction
+command! SignConfig :call <SID>SignConfig()
+
+" Save and sign a local configuration file. Can be used with both active local
+" configurations and new or external configurations.
+function! <SID>SaveAndSign(force,...)
+	if a:0 > 1
+		echohl ErrorMsg
+		echo "E172: Only one file name allowed"
+		echohl None
+		return
+	endif
+	let s:save_and_sign = 1
+	if a:0 == 1 && a:force
+		execute "w!" a:1
+	elseif a:0
+		execute "w" a:1
+	elseif a:force
+		w!
+	else
+		w
+	endif
+	unlet! s:save_and_sign
+endfunction
+command! -bang -complete=file -nargs=? SaveAndSign
+	\ call <SID>SaveAndSign( "<bang>" == "!" , <f-args> )
+
 
 " Check if the local directory and local vimrc exist
 if !( isdirectory( ".vim.local" ) && filereadable( ".vim.local/vimrc" ) )
