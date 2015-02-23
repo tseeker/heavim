@@ -32,6 +32,35 @@ function! GetVardataPath(name)
 	return g:vim_vardata . "/" . a:name
 endfunction
 
+" Find a configuration file, based on a path relative to the configuration
+" directory and a name.
+"
+" 1/ If there is a local configuration, this will look for the file in the
+"    local configuration. If it exists, its full path will be returned.
+" 2/ If there is a local configuration, this will look for a file named
+"    'suppress.<name>' at the same location; if the file is found, the
+"    function will return an empty string.
+" 3/ If the file exists in the global configuration, its full path will be
+"    returned.
+" 4/ An empty string will be returned.
+function! GetConfigFilePath(base,name)
+	if exists( "g:vim_local_path" )
+		let bd = g:vim_local_path . "/" . a:base
+		if filereadable( l:bd . "/" . a:name )
+			return l:bd . "/" . a:name
+		endif
+		if filereadable( l:bd . "/suppress." . a:name )
+			return ""
+		endif
+	endif
+	let f = g:vim_home . "/" . a:base . "/" . a:name
+	if filereadable( l:f )
+		return l:f
+	endif
+	return ''
+endfunction
+
+
 " We need signature handling abilities to continue
 if !exists( "g:vim_keys" )
 	finish
