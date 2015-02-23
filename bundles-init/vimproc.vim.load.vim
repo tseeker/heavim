@@ -1,4 +1,4 @@
-NeoBundle 'Shougo/vimproc.vim', {
+NeoBundle 'tseeker/vimproc.vim', 'fix-dll-globs' , {
 	\ 'build' : {
 	\     'windows' : 'tools\\update-dll-mingw',
 	\     'cygwin' : 'make -f make_cygwin.mak',
