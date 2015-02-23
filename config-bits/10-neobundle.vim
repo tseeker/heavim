@@ -39,12 +39,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Load all plugins from bundles-init/*.load.vim
 let s:binit_dir = g:vim_home . "/bundles-init"
-for s:plfn in glob( s:binit_dir . "/*.load.vim" , 0 , 1 )
+let s:bundle_load_files = GetConfigFiles( "bundles-init" , "*.load.vim" )
+for s:plfn in values( s:bundle_load_files )
 	execute "source" s:plfn
 
 	" Create configuration loading hooks
 	let s:pname = fnamemodify( s:plfn , ":t:r:r" )
 	let s:bundle = neobundle#get( s:pname )
+	if empty( s:bundle )
+		continue
+	endif
 
 	function! s:bundle.hooks.on_post_source( bundle )
 		let cfgfile = GetConfigFilePath( "bundles-init" ,
