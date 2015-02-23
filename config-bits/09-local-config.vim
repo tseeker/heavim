@@ -60,6 +60,30 @@ function! GetConfigFilePath(base,name)
 	return ''
 endfunction
 
+" List files in a configuration directory, letting the local configuration
+" override the main configuration. The files are returned as a dictionary;
+" keys are the files' basenames, while values are the full paths.
+function! GetConfigFiles(base,pattern)
+	let fd = {}
+	" Get main configuration files
+	for mcf in glob( g:vim_home . "/" . a:base . "/" . a:pattern , 1 , 1 )
+		let l:fd[ fnamemodify( l:mcf , ":t" ) ] = l:mcf
+	endfor
+	" Exit if there's no local configuration
+	if !exists( "g:vim_local_path" )
+		return l:fd
+	endif
+	" Handle suppressions
+	for lsf in glob( g:vim_local_path . "/" . a:base . "/suppress." . a:pattern , 1 , 1 )
+		unlet! l:fd[ fnamemodify( l:lsf , ":t" )[ 9 : -1 ] ]
+	endfor
+	" Handle local files
+	for lcf in glob( g:vim_local_path . "/" . a:base . "/" . a:pattern , 1 , 1 )
+		let l:fd[ fnamemodify( l:lcf , ":t" ) ] = l:lcf
+	endfor
+	return l:fd
+endfunction
+
 
 " We need signature handling abilities to continue
 if !exists( "g:vim_keys" )
