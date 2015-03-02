@@ -1,0 +1,15 @@
+*heavim.txt* A really heavy Vim configuration
+
+1. Keyboard shortcuts				|heavim-shortcuts|
+
+=============================================================================
+1. KEYBOARD SHORTCUTS ~ 				   *heavim-shortcuts*
+
+Note: Heavim defines Space as the global leader key, and comma (',') as the
+local leader key.
+
+   +                    Toggle folds
+
+   <Leader><Space>      Clear highlighted search
+   <Leader>M            Toggle mouse
+   <Leader>T		Toggle visible tabs
