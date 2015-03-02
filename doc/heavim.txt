@@ -10,6 +10,20 @@ local leader key.
 
    +                    Toggle folds
 
-   <Leader><Space>      Clear highlighted search
    <Leader>M            Toggle mouse
+   <C-c>                (Visual mode) Copy selected text to X clipboard
+
+   <Leader><Space>      Clear highlighted search
+
+   <Leader>n            Toggle line numbers
+   <Leader>c            Invert cursor line/column
+   <Leader>C            Toggle cursor line/column modes
+
    <Leader>T		Toggle visible tabs
+
+   <A-Insert>           Open new tab
+   <C-A-Insert>         Close current tab
+   <A-Left>             Select previous tab
+   <A-Right>            Select next tab
+   <A-Up>               Move current tab left
+   <A-Down>             Move current tab right
