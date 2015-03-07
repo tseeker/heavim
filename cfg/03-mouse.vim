@@ -14,3 +14,4 @@ set mouse=a
 
 nnoremap <silent> <Leader>M :call <SID>ToggleMouse()<cr>
 vnoremap <silent> <C-c> "+y
+set pastetoggle=<Leader>P

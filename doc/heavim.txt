@@ -11,6 +11,7 @@ local leader key.
    +                    Toggle folds
 
    <Leader>M            Toggle mouse
+   <Leader>P            Toggle paste mode
    <C-c>                (Visual mode) Copy selected text to X clipboard
 
    <Leader><Space>      Clear highlighted search
