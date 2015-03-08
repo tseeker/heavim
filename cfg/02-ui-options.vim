@@ -7,3 +7,6 @@ set wildmenu			" Enhanced command completion, with menu!
 
 let mapleader = ' '		" Space as leader character
 let maplocalleader = ','	" Comma as local leader character
+
+set ttimeout
+set ttimeoutlen=450
