@@ -14,6 +14,10 @@ local leader key.
    <Leader>P            Toggle paste mode
    <C-c>                (Visual mode) Copy selected text to X clipboard
 
+   <Leader>pp           CtrlP: buffer list
+   <Leader>po           CtrlP: recently used files
+   <Leader>pi           CtrlP: directory
+
    <Leader><Space>      Clear highlighted search
 
    <Leader>n            Toggle line numbers
