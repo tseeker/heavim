@@ -1,4 +1,4 @@
-*heavim.txt* A really heavy Vim configuration
+*heavim* A really heavy Vim configuration
 
 1. Keyboard shortcuts				|heavim-shortcuts|
 
@@ -13,10 +13,6 @@ local leader key.
    <Leader>M            Toggle mouse
    <Leader>P            Toggle paste mode
    <C-c>                (Visual mode) Copy selected text to X clipboard
-
-   <Leader>pp           CtrlP: buffer list
-   <Leader>po           CtrlP: recently used files
-   <Leader>pi           CtrlP: directory
 
    <Leader><Space>      Clear highlighted search
 
@@ -36,3 +32,10 @@ local leader key.
    <A-Right>            Select next tab
    <A-Up>               Move current tab left
    <A-Down>             Move current tab right
+
+   <Leader>Bu           NeoBundle: check for updates
+   <Leader>Bi           NeoBundle: install new bundles
+
+   <Leader>pp           CtrlP: buffer list
+   <Leader>po           CtrlP: recently used files
+   <Leader>pi           CtrlP: directory

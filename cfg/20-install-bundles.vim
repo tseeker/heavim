@@ -2,6 +2,6 @@
 
 call DoNeoBundleCheck( )
 
-" Do mappings somewhere else
-" nmap <silent> <S-F12> :NeoBundleCheckUpdate<cr>
-" nmap <silent> <C-F12> :call DoNeoBundleCheck()<cr>
+" Add key mappings for updates and installation
+nnoremap <silent> <Leader>Bu :NeoBundleCheckUpdate<cr>
+nnoremap <silent> <Leader>Bi :call DoNeoBundleCheck()<cr>
