@@ -22,6 +22,10 @@ local leader key.
 
    <Leader>T		Toggle visible tabs
 
+   <S-Left>             Previous buffer
+   <S-Right>            Next buffer
+   <C-S-Down>           Close current buffer
+
    <A-Insert>           Open new tab
    <C-A-Insert>         Close current tab
    <A-Left>             Select previous tab
