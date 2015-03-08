@@ -1,3 +1,1 @@
-NeoBundleLazy 'ctrlpvim/ctrlp.vim' , {
-\	'mappings': '<Leader>p'
-\ }
+NeoBundle 'ctrlpvim/ctrlp.vim'

@@ -1,1 +1,3 @@
-NeoBundle 'bling/vim-airline'
+NeoBundle 'bling/vim-airline' , {
+\		'depends' : 'ctrlp.vim'
+\	}
