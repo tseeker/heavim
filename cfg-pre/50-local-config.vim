@@ -79,7 +79,10 @@ function! GetConfigFiles(base,pattern)
 	endfor
 	" Handle local files
 	for lcf in glob( g:vim_local_path . "/" . a:base . "/" . a:pattern , 1 , 1 )
-		let l:fd[ fnamemodify( l:lcf , ":t" ) ] = l:lcf
+		let name = fnamemodify( l:lcf , ":t" )
+		if name !~ "^suppress\\."
+			let l:fd[ l:name ] = l:lcf
+		endif
 	endfor
 	return l:fd
 endfunction
