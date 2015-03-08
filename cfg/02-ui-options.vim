@@ -5,4 +5,4 @@ set incsearch			" Incremental search
 set title			" Update terminal title
 set wildmenu			" Enhanced command completion, with menu!
 
-set notimeout			" No timeout for key sequences
+set timeoutlen=500		" Timeout for key sequences
