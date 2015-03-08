@@ -79,11 +79,7 @@ function! DoNeoBundleCheck()
 
 	" Let NeoBundle check for installations
 	NeoBundleCheck
-
-	" Call hooks on reload
-	if !has( "vim_starting" )
-		call neobundle#call_hook( "on_post_source" )
-	endif
+	call neobundle#call_hook( "on_post_source" )
 
 	" Restore filetype settings
 	if ! s:has_fti
