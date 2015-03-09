@@ -1,3 +1,3 @@
 NeoBundle 'bling/vim-airline' , {
-\		'depends' : 'ctrlp.vim'
+\		'depends' : [ 'ctrlpvim/ctrlp.vim' , 'majutsushi/tagbar' ]
 \	}
