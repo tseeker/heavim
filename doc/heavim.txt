@@ -61,5 +61,5 @@ local leader key.
    <Leader>gP           Git: push
    <Leader>gR           Git: remove current buffer
 
-   <Leader>s            Toggle syntax checking
-   <Leader>ss           Check syntax now
+   <Leader>ss           Toggle syntax checking
+   <Leader>sc           Check syntax now

@@ -8,5 +8,5 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_ignore_files = ['\m^/usr/include/']
 
-nnoremap <silent> <Leader>s :SyntasticToggleMode<cr>
-nnoremap <silent> <Leader>ss :SyntasticCheck<cr>
+nnoremap <silent> <Leader>ss :SyntasticToggleMode<cr>
+nnoremap <silent> <Leader>sc :SyntasticCheck<cr>
