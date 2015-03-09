@@ -4,5 +4,3 @@ set showmatch			" Show matching parentheses
 set incsearch			" Incremental search
 set title			" Update terminal title
 set wildmenu			" Enhanced command completion, with menu!
-
-set timeoutlen=500		" Timeout for key sequences
