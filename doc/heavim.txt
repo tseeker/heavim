@@ -41,3 +41,4 @@ local leader key.
    <Leader>pi           CtrlP: directory
 
    <Leader>t            Toggle tagbar
+   <Leader>e            Toggle NERDtree explorer
