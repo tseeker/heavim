@@ -60,3 +60,6 @@ local leader key.
    <Leader>gM           Git: rename current buffer
    <Leader>gP           Git: push
    <Leader>gR           Git: remove current buffer
+
+   <Leader>s            Toggle syntax checking
+   <Leader>ss           Check syntax now
