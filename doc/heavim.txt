@@ -42,3 +42,21 @@ local leader key.
 
    <Leader>t            Toggle tagbar
    <Leader>e            Toggle NERDtree explorer
+
+   <Leader>gd           Git: view diff for current buffer
+   <Leader>gl           Git: show log
+   <Leader>gs           Git: show status
+   <Leader>g<           Git: previous modified chunk
+   <Leader>g>           Git: next modified chunk
+
+   <Leader>g+           Git: add modified chunk
+   <Leader>g-           Git: revert modified chunk
+   <Leader>ga           Git: add whole buffer
+   <Leader>gb           Git: create branch
+   <Leader>gc           Git: commit staged changes
+
+   <Leader>gB           Git: create and checkout branch
+   <Leader>gC           Git: checkout
+   <Leader>gM           Git: rename current buffer
+   <Leader>gP           Git: push
+   <Leader>gR           Git: remove current buffer
