@@ -6,7 +6,7 @@ nnoremap <Leader>e :NERDTreeToggle<CR>
 autocmd VimEnter * if argc() == 0 && &columns > 150 | NERDTree | endif
 
 " Set the bookmarks file's path
-let g:NERDTreeBookmarksFile = g:vim_vardata . '/NTBookmarks'
+let g:NERDTreeBookmarksFile = GetVardataPath( 'NTBookmarks' )
 if filereadable( g:NERDTreeBookmarksFile )
 	ReadBookmarks
 endif
