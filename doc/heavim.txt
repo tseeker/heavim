@@ -36,6 +36,8 @@ local leader key.
    <Leader>Bu           NeoBundle: check for updates
    <Leader>Bi           NeoBundle: install new bundles
 
+   <Leader>hm           Help: man page for current word
+
    <Leader>pp           CtrlP: buffer list
    <Leader>po           CtrlP: recently used files
    <Leader>pi           CtrlP: directory
