@@ -27,7 +27,7 @@ endif
 " Execute configuration in cfg-pre/, which should in turn execute the main
 " configuration in cfg/
 let s:cfg_bits_path = g:vim_home . '/cfg-pre'
-let s:cfg_files = glob( s:cfg_bits_path . '/??-?*.vim' )
-for s:cfg_file in sort( split( s:cfg_files , "\n" ) )
+let s:cfg_files = glob( s:cfg_bits_path . '/??-?*.vim' , 0 , 1 )
+for s:cfg_file in sort( s:cfg_files )
 	execute 'source ' . s:cfg_file
 endfor
