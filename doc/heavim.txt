@@ -37,6 +37,8 @@ local leader key.
    <Leader>Bi           NeoBundle: install new bundles
 
    <Leader>hm           Help: man page for current word
+   <Leader>hv           Help: vim help for current word (only in .vim
+                            files)
 
    <Leader>pp           CtrlP: buffer list
    <Leader>po           CtrlP: recently used files
