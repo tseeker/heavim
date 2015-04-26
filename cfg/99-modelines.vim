@@ -19,5 +19,5 @@ function! <SID>CheckModelines()
 	setlocal modeline
 endfunction
 
-set modelines=1
+set modelines=5
 au BufRead * call <SID>CheckModelines()
