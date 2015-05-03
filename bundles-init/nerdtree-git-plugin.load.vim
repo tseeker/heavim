@@ -1,3 +1,3 @@
-NeoBundle 'scrooloose/nerdtree-git-plugin' , {
+NeoBundle 'Xuyuanp/nerdtree-git-plugin' , {
 		\ 'depends' : 'scrooloose/nerdtree'
 	\ }
