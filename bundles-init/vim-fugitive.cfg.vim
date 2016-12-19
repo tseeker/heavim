@@ -1,7 +1,6 @@
 " Fugitive commands that don't require interaction with GitGutter or NERDTree
 nnoremap <silent> <Leader>gd :Gdiff<cr>
 nnoremap <silent> <Leader>gs :Gstatus<cr>
-nnoremap <silent> <Leader>gl :Silent Glog<cr>:bot copen<cr>
 nnoremap <silent> <Leader>gc :Gcommit -q<cr>
 nnoremap <Leader>gb :Git branch<space>
 
