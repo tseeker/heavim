@@ -1,5 +1,5 @@
 " Run tests in the background, send results to the quickfix window
-let test#strategy = 'async_background'
+let test#strategy = 'asyncrun_background'
 
 " Shortcuts
 nmap <silent> <F10> :TestSuite<CR>
