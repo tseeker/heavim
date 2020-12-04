@@ -1,23 +1,22 @@
-function! <SID>RunGitOp(op)
-	execute "Silent" a:op
-	GitGutter
-	
-	let wins = filter( range( 1 , winnr( '$' ) ) ,
-		\ "buffer_name(winbufnr(v:val)) =~ '^NERD_tree_[0-9]\\+$'" )
-	if empty( l:wins )
-		return
-	endif
-
-	let wn = winnr()
-	call NERDTreeFocus()
-	call feedkeys( "R:" . l:wn . "wincmd w\<cr>:\<esc>" , 't' )
-endfunction
-
-
+" Key maps
 let g:gitgutter_map_keys = 0
 nnoremap <silent> <Leader>g< :GitGutterPrevHunk<cr>
 nnoremap <silent> <Leader>g> :GitGutterNextHunk<cr>
-nnoremap <silent> <Leader>g+ :call <SID>RunGitOp( 'GitGutterStageHunk' )<cr>
+nnoremap <silent> <Leader>g+ :GitGutterStageHunk<cr>
 nnoremap <Leader>g- :GitGutterRevertHunk
 
-nnoremap <silent> <Leader>ga :call <SID>RunGitOp( 'Git add %:p' )<cr>
+" Symbols
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '±'
+let g:gitgutter_sign_removed = '∅'
+
+" Symbol colors
+highlight GitGutterAdd ctermfg=10 ctermbg=236
+highlight GitGutterChange ctermfg=11 ctermbg=236
+highlight GitGutterDelete ctermfg=9 ctermbg=236 cterm=bold
+
+" No highlights for added/changed/deleted lines
+highlight GitGutterAddLine ctermbg=0
+highlight GitGutterChangeLine ctermbg=0
+highlight GitGutterDeleteLine ctermbg=0
+highlight GitGutterChangeDeleteLine ctermbg=0
