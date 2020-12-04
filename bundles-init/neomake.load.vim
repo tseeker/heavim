@@ -1,1 +1,1 @@
-NeoBundle "neomake/neomake"
+NeoBundle 'neomake/neomake'
