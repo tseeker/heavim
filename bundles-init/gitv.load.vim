@@ -1,1 +1,0 @@
-NeoBundle 'gregsexton/gitv'
