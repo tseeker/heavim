@@ -18,9 +18,11 @@ function! <SID>SwitchVisibleTabs()
 	if s:VisibleTabs == 1
 		let s:VisibleTabs = 0
 		call s:UpdateListChars( "tab" , "  " )
+		call s:UpdateListChars( "nbsp" , " " )
 	else
 		let s:VisibleTabs = 1
 		call s:UpdateListChars( "tab" , "» " )
+		call s:UpdateListChars( "nbsp" , "⚠" )
 	endif
 endfunction
 
