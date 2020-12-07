@@ -33,6 +33,7 @@ let g:which_key_map.g['-'] = 'revert-hunk'
 let g:which_key_map.g['<'] = 'previous-hunk'
 let g:which_key_map.g['>'] = 'next-hunk'
 let g:which_key_map.g.a = 'add-file'
+let g:which_key_map.g.b = 'branch'
 let g:which_key_map.g.B = 'new-branch'
 let g:which_key_map.g.C = 'checkout-branch'
 let g:which_key_map.g.c = 'commit'
@@ -42,6 +43,7 @@ let g:which_key_map.g.l = 'log-split'
 let g:which_key_map.g.M = 'move'
 let g:which_key_map.g.P = 'push'
 let g:which_key_map.g.p = 'pull'
+let g:which_key_map.g.r = 'rename'
 let g:which_key_map.g.R = 'remove'
 let g:which_key_map.g.s = 'status'
 
@@ -67,3 +69,11 @@ let g:which_key_map.l.s = 'workspace-symbols'
 let g:which_key_map.P = { 'name' : '+plugins' }
 let g:which_key_map.P.i = 'install-new'
 let g:which_key_map.P.u = 'update'
+
+" Terminal
+let g:which_key_map.t = { 'name' : '+terminal' }
+let g:which_key_map.t.t = 'terminal-right'
+let g:which_key_map.t.z = 'terminal-top'
+let g:which_key_map.t.q = 'terminal-left'
+let g:which_key_map.t.s = 'terminal-bottom'
+let g:which_key_map.t.d = 'terminal-right'
