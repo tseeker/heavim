@@ -46,6 +46,7 @@ let g:which_key_map.g.p = 'pull'
 let g:which_key_map.g.r = 'rename'
 let g:which_key_map.g.R = 'remove'
 let g:which_key_map.g.s = 'status'
+let g:which_key_map.g.z = 'unstage'
 
 " Help
 let g:which_key_map.h = { 'name' : '+help' }

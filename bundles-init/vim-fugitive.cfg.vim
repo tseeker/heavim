@@ -3,6 +3,7 @@ nnoremap <silent> <Leader>ga :Git add %:p<cr>
 nnoremap <silent> <Leader>gd :Gdiffsplit<cr>
 nnoremap <silent> <Leader>gs :Git<cr>
 nnoremap <silent> <Leader>gc :Git commit -q<cr>
+nnoremap <silent> <Leader>gz :Git reset %:p<cr>
 nnoremap <Leader>gb :Git branch<space>
 
 " Note: dangerous commands don't have a <cr>. Also commands that need
