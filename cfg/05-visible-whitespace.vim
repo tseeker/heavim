@@ -1,12 +1,14 @@
 " Trailing spaces and visible tabs
 "
 " Trailing spaces are visible in normal or visual mode, but hidden in insert
-" mode. Tabs can be displayed or hidden using <Leader>T.
+" mode. All whitespace can be made visible using <Leader>ow
 
-set list
-set listchars=""
-set listchars+=trail:•
-set listchars+=tab:\ \ 
+let s:Settings = {
+\	'tab'   : [ "  " , "» " ] ,
+\	'nbsp'  : [ " " ,  "⚠"  ] ,
+\	'space' : [ " " ,  "·"  ] ,
+\	'eol'   : [ " " ,  "¶"  ] ,
+\	}
 let s:VisibleTabs = 0
 
 function! s:UpdateListChars(type,value)
@@ -14,19 +16,22 @@ function! s:UpdateListChars(type,value)
 	let &l:listchars = join( lc , "," )
 endfunction
 
-function! <SID>SwitchVisibleTabs()
-	if s:VisibleTabs == 1
-		let s:VisibleTabs = 0
-		call s:UpdateListChars( "tab" , "  " )
-		call s:UpdateListChars( "nbsp" , " " )
-	else
-		let s:VisibleTabs = 1
-		call s:UpdateListChars( "tab" , "» " )
-		call s:UpdateListChars( "nbsp" , "⚠" )
-	endif
+function! s:ApplyWhitespaceSettings()
+	for k in keys(s:Settings)
+		call s:UpdateListChars( k , s:Settings[k][s:VisibleTabs] )
+	endfor
 endfunction
 
-nnoremap <silent> <Leader>T :call <SID>SwitchVisibleTabs()<cr>
+function! <SID>ToggleVisibleWhitespace()
+	let s:VisibleTabs = 1 - s:VisibleTabs
+	call s:ApplyWhitespaceSettings()
+endfunction
+
+set list
+set listchars=""
+call s:ApplyWhitespaceSettings()
+
+nnoremap <silent> <Leader>ow :call <SID>ToggleVisibleWhitespace()<cr>
 augroup TrailingWhitespace
 	autocmd!
 	autocmd InsertEnter * :call <SID>UpdateListChars( "trail" , " " )
