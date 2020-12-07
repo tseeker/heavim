@@ -43,4 +43,3 @@ function <SID>CloseCurrentBuffer( )
 endfunction
 
 nnoremap <silent> <C-S-Down> :call <SID>CloseCurrentBuffer()<CR>
-
