@@ -1,4 +1,4 @@
-" Enable mouse by default, provide <Leader>M shortcut to toggle on/off
+" Enable mouse by default, provide <Leader>om shortcut to toggle on/off
 
 function! <SID>ToggleMouse()
 	if &g:mouse != ""
@@ -11,7 +11,4 @@ function! <SID>ToggleMouse()
 endfunction
 
 set mouse=a
-
-nnoremap <silent> <Leader>M :call <SID>ToggleMouse()<cr>
-vnoremap <silent> <C-c> "+y
-set pastetoggle=<Leader>P
+nnoremap <silent> <Leader>om :call <SID>ToggleMouse()<cr>

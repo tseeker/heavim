@@ -7,3 +7,6 @@ autocmd VimEnter * if argc() == 0 && &columns > 150 | NERDTree | endif
 
 " Set the bookmarks file's path
 let g:NERDTreeBookmarksFile = GetVardataPath( 'NTBookmarks' )
+
+" Hide the sign column
+autocmd FileType nerdtree setlocal signcolumn=no

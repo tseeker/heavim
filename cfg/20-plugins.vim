@@ -3,5 +3,5 @@
 call DoNeoBundleCheck( )
 
 " Add key mappings for updates and installation
-nnoremap <silent> <Leader>Bu :NeoBundleCheckUpdate<cr>
-nnoremap <silent> <Leader>Bi :call DoNeoBundleCheck()<cr>
+nnoremap <silent> <Leader>Pu :NeoBundleCheckUpdate<cr>
+nnoremap <silent> <Leader>Pi :call DoNeoBundleCheck()<cr>

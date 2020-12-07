@@ -9,10 +9,12 @@ let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '‼'}
 
 " Keyboard shortcuts
-noremap <Leader>df :LspDocumentFormat<cr>
-vnoremap <Leader>df :LspDocumentRangeFormat<cr>
-noremap <Leader>dr :LspReferences<cr>
-noremap <F3> :LspDefinition<cr>
-noremap <Leader>dR :LspRename<cr>
-noremap <Leader>dh :LspHover<cr>
-noremap <Leader>ds :LspWorkspaceSymbol<cr>
+noremap <Leader>ld :LspDocumentDiagnostics<cr>
+noremap <Leader>lf :LspDocumentFormat<cr>
+noremap <Leader>lgd :LspDefinition<cr>
+noremap <Leader>lgD :LspDeclaration<cr>
+noremap <Leader>li :LspHover<cr>
+noremap <Leader>lr :LspReferences<cr>
+noremap <Leader>lR :LspRename<cr>
+noremap <Leader>ls :LspDocumentSymbol<cr>
+noremap <Leader>lS :LspWorkspaceSymbol<cr>
