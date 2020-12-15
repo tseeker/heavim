@@ -1,6 +1,6 @@
 " Fugitive commands that don't require interaction with GitGutter or NERDTree
 nnoremap <silent> <Leader>ga :Git add %:p<cr>
-nnoremap <silent> <Leader>gd :Gdiffsplit<cr>
+nnoremap <silent> <Leader>gd :Gvdiffsplit<cr>
 nnoremap <silent> <Leader>gs :Git<cr>
 nnoremap <silent> <Leader>gc :Git commit -q<cr>
 nnoremap <silent> <Leader>gz :Git reset %:p<cr>
