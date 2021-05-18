@@ -8,6 +8,7 @@ let g:which_key_fallback_to_native_key = 1
 let g:which_key_map[' '] = [ 'call feedkeys(":nohlsearch\n")' , 'clear-search' ]
 let g:which_key_map.e = 'file-explorer'
 let g:which_key_map.u = 'undo-tree'
+let g:which_key_map.q = 'toggle-quickfix'
 
 " Options
 let g:which_key_map.o = { 'name' : '+options' }
@@ -78,3 +79,10 @@ let g:which_key_map.t.z = 'terminal-top'
 let g:which_key_map.t.q = 'terminal-left'
 let g:which_key_map.t.s = 'terminal-bottom'
 let g:which_key_map.t.d = 'terminal-right'
+
+" Tests
+let g:which_key_map.T = { 'name' : '+tests' }
+let g:which_key_map.T.a = 'run-all'
+let g:which_key_map.T.f = 'run-file'
+let g:which_key_map.T.c = 'run-nearest'
+let g:which_key_map.T.T = 'run-previous'

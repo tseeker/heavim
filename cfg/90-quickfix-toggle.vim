@@ -40,3 +40,4 @@ function! ToggleQuickfix(size, ...)
 endfunc
 
 nmap <silent> <F12> :call ToggleQuickfix(0)<CR>
+nmap <silent> <Leader>q :call ToggleQuickfix(0)<CR>

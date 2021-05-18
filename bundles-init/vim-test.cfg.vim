@@ -2,7 +2,7 @@
 let test#strategy = 'asyncrun_background'
 
 " Shortcuts
-nmap <silent> <F10> :TestSuite<CR>
-nmap <silent> <F11> :TestFile<CR>
-nmap <silent> <S-F11> :TestNearest<CR>
-nmap <silent> <C-F11> :TestLast<CR>
+nmap <silent> <Leader>Ta :TestSuite<CR>
+nmap <silent> <Leader>Tf :TestFile<CR>
+nmap <silent> <Leader>Tc :TestNearest<CR>
+nmap <silent> <Leader>TT :TestLast<CR>
