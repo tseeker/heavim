@@ -1,7 +1,7 @@
 let g:lsp_settings = {
-\   'pyls-all': {
+\   'pylsp-all': {
 \     'workspace_config': {
-\       'pyls': {
+\       'pylsp': {
 \         'plugins': {
 \           'black': {
 \             'enabled' : v:true ,
