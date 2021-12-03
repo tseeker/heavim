@@ -3,37 +3,36 @@
 " Trailing spaces are visible in normal or visual mode, but hidden in insert
 " mode. All whitespace can be made visible using <Leader>ow
 
-let s:Settings = {
-\	'tab'   : [ "  " , "» " ] ,
-\	'nbsp'  : [ " " ,  "⚠"  ] ,
-\	'space' : [ " " ,  "·"  ] ,
-\	'eol'   : [ " " ,  "¶"  ] ,
-\	}
-let s:VisibleTabs = 0
+let s:VisibleWhitespace = 0
+let s:VisibleTrail = 1
 
-function! s:UpdateListChars(type,value)
-	let lc = filter( split( &l:listchars , "," ) , "v:val !~ '^" . a:type . ":'" ) + [ a:type . ":" . a:value ]
-	let &l:listchars = join( lc , "," )
+function! s:UpdateListChars()
+	if s:VisibleWhitespace
+		set listchars=tab:»\ ,nbsp:⚠,space:·,eol:¶
+	else
+		set listchars=tab:\ \ ,
+	endif
+	if s:VisibleTrail
+		set listchars+=trail:•
+	endif
 endfunction
 
-function! s:ApplyWhitespaceSettings()
-	for k in keys(s:Settings)
-		call s:UpdateListChars( k , s:Settings[k][s:VisibleTabs] )
-	endfor
+function! s:ToggleWhitespace()
+	let s:VisibleWhitespace = 1 - s:VisibleWhitespace
+	call s:UpdateListChars()
 endfunction
 
-function! <SID>ToggleVisibleWhitespace()
-	let s:VisibleTabs = 1 - s:VisibleTabs
-	call s:ApplyWhitespaceSettings()
+function! s:SetVisibleTrail(trail)
+	let s:VisibleTrail = a:trail
+	call s:UpdateListChars()
 endfunction
 
 set list
-set listchars=""
-call s:ApplyWhitespaceSettings()
+call s:UpdateListChars()
+nnoremap <silent> <Leader>ow :call <SID>ToggleWhitespace()<cr>
 
-nnoremap <silent> <Leader>ow :call <SID>ToggleVisibleWhitespace()<cr>
 augroup TrailingWhitespace
 	autocmd!
-	autocmd InsertEnter * :call <SID>UpdateListChars( "trail" , " " )
-	autocmd InsertLeave * :call <SID>UpdateListChars( "trail" , "•" )
+	autocmd InsertEnter * :call <SID>SetVisibleTrail(0)
+	autocmd InsertLeave * :call <SID>SetVisibleTrail(1)
 augroup END
