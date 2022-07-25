@@ -1,2 +1,4 @@
-" Disable :GoDef (we don't need gopls here)
-let g:go_def_mapping_enabled = 0
+" Terminal support
+let g:go_term_enabled = 1
+let g:go_term_mode = "split"
+let g:go_term_height = 15
