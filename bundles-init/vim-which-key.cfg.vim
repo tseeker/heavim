@@ -56,6 +56,7 @@ let g:which_key_map.h.v = 'vim-help'
 
 " Language helpers
 let g:which_key_map.l = { 'name' : '+language' }
+let g:which_key_map.l.a = 'actions'
 let g:which_key_map.l.d = 'diagnostics'
 let g:which_key_map.l.f = 'format'
 let g:which_key_map.l.g = { 'name' : '+goto' }
