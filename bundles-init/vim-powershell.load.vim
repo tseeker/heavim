@@ -1,0 +1,1 @@
+NeoBundle 'zigford/vim-powershell'
