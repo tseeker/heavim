@@ -8,6 +8,9 @@ let g:lsp_settings = {
 \           },
 \           'pycodestyle': {
 \             'maxLineLength' : 88 ,
+\           },
+\           'pylint': {
+\             'enabled': v:true,
 \           }
 \         }
 \       }
