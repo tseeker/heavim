@@ -34,6 +34,10 @@ if has( 'vim_starting' )
 	let &g:runtimepath = &g:runtimepath . "," . s:dein_path
 endif
 
+call dein#options(#{
+	\ 	lazy_plugins: v:true,
+	\ 	install_progress_type: 'floating',
+	\ })
 call dein#begin( g:bundles_dir )
 
 " Load Dein itself
@@ -48,21 +52,17 @@ for s:plfn in values( s:bundle_load_files )
 
 	" Create configuration loading hooks
 	let s:pname = fnamemodify( s:plfn , ":t:r:r" )
-	let s:bundle = dein#get( s:pname )
-	if empty( s:bundle )
-		continue
+	let s:cfgfile = GetConfigFilePath( s:plugins_dir ,
+		\ s:pname . ".cfg.vim" )
+	if s:cfgfile != ""
+		call dein#set_hook(s:pname, 'hook_post_source',
+			\ 	join(readfile(s:cfgfile), "\n")
+			\ )
 	endif
-
-	function! s:bundle.hooks.on_post_source( bundle )
-		let cfgfile = GetConfigFilePath( s:plugins_dir ,
-			\ a:bundle.name . ".cfg.vim" )
-		if l:cfgfile != ""
-			execute "source" l:cfgfile
-		endif
-	endfunction
 endfor
 
 call dein#end()
+autocmd VimEnter * call dein#call_hook('post_source')
 
 function! CheckDeinInstall()
 	" Let Dein check for installations
