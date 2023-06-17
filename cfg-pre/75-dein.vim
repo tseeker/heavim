@@ -30,8 +30,6 @@ if has( 'vim_starting' )
 	let s:dein_path = g:bundles_dir . "github.com/Shougo/dein.vim"
 	if !isdirectory(s:dein_path)
 		execute '!git clone https://github.com/Shougo/dein.vim' s:dein_path
-	else
-		echo "Wat " . s:dein_path
 	endif
 	let &g:runtimepath = &g:runtimepath . "," . s:dein_path
 endif
