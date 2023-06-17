@@ -1,4 +1,4 @@
-" Load and initialise NeoBundle and plugins
+" Load and initialise Dein and plugins
 
 if !exists( "g:bundles_dir" )
 	if exists( "g:vim_local['local_bundles']" )
@@ -16,7 +16,7 @@ if g:bundles_dir !~ "/$"
 endif
 if !CreateDirectoryIfNecessary( g:bundles_dir )
 	unlet g:bundles_dir
-	function! DoNeoBundleCheck()
+	function! CheckDeinInstall()
 		" Empty placeholder function
 	endfunction
 	finish
@@ -27,34 +27,35 @@ if has( 'vim_starting' )
 		set nocompatible
 	endif
 
-	if isdirectory( g:bundles_dir . "neobundle.vim" )
-		let s:neobundle_path = g:bundles_dir . "neobundle.vim"
+	let s:dein_path = g:bundles_dir . "github.com/Shougo/dein.vim"
+	if !isdirectory(s:dein_path)
+		execute '!git clone https://github.com/Shougo/dein.vim' s:dein_path
 	else
-		let s:neobundle_path = g:vim_home . "/neobundle-initial"
+		echo "Wat " . s:dein_path
 	endif
-	let &g:runtimepath = &g:runtimepath . "," . s:neobundle_path
+	let &g:runtimepath = &g:runtimepath . "," . s:dein_path
 endif
 
-call neobundle#begin( g:bundles_dir )
+call dein#begin( g:bundles_dir )
 
-" Load NeoBundle itself, as well as VimProc
-NeoBundleFetch 'Shougo/neobundle.vim'
+" Load Dein itself
+call dein#add(s:dein_path)
 
 " Load all plugins from bundles-init/*.load.vim
-let s:binit_dir = g:vim_home . "/bundles-init"
-let s:bundle_load_files = GetConfigFiles( "bundles-init" , "*.load.vim" )
+let s:binit_dir = g:vim_home . "/plugins"
+let s:bundle_load_files = GetConfigFiles( "plugins" , "*.load.vim" )
 for s:plfn in values( s:bundle_load_files )
 	execute "source" s:plfn
 
 	" Create configuration loading hooks
 	let s:pname = fnamemodify( s:plfn , ":t:r:r" )
-	let s:bundle = neobundle#get( s:pname )
+	let s:bundle = dein#get( s:pname )
 	if empty( s:bundle )
 		continue
 	endif
 
 	function! s:bundle.hooks.on_post_source( bundle )
-		let cfgfile = GetConfigFilePath( "bundles-init" ,
+		let cfgfile = GetConfigFilePath( "plugins" ,
 			\ a:bundle.name . ".cfg.vim" )
 		if l:cfgfile != ""
 			execute "source" l:cfgfile
@@ -62,10 +63,12 @@ for s:plfn in values( s:bundle_load_files )
 	endfunction
 endfor
 
-call neobundle#end()
+call dein#end()
 
-function! DoNeoBundleCheck()
-	" Let NeoBundle check for installations
-	NeoBundleCheck
-	call neobundle#call_hook( "on_post_source" )
+function! CheckDeinInstall()
+	" Let Dein check for installations
+	if dein#check_install()
+		call dein#install()
+	endif
+	call dein#call_hook( "on_post_source" )
 endfunction
