@@ -69,5 +69,4 @@ function! CheckDeinInstall()
 	if dein#check_install()
 		call dein#install()
 	endif
-	call dein#call_hook( "on_post_source" )
 endfunction
