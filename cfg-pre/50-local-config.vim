@@ -182,9 +182,11 @@ echo "Found local configuration in .vim.local ; validating..."
 try
 	call CheckSignature( ".vim.local/vimrc" , ".vim.local/signature" )
 catch /.*/
+	echohl ErrorMsg
 	echo " "
 	echo " -> SIGNATURE VERIFICATION FAILED"
 	echo " "
+	echohl None
 	finish
 endtry
 echo " -> Using local configuration."
