@@ -39,9 +39,10 @@ call dein#begin( g:bundles_dir )
 " Load Dein itself
 call dein#add(s:dein_path)
 
-" Load all plugins from bundles-init/*.load.vim
-let s:binit_dir = g:vim_home . "/plugins"
-let s:bundle_load_files = GetConfigFiles( "plugins" , "*.load.vim" )
+" Load all plugins from ${plugins directory}/*.load.vim
+let s:plugins_dir = "plugins"
+let s:binit_dir = g:vim_home . "/" . s:plugins_dir
+let s:bundle_load_files = GetConfigFiles( s:plugins_dir , "*.load.vim" )
 for s:plfn in values( s:bundle_load_files )
 	execute "source" s:plfn
 
@@ -53,7 +54,7 @@ for s:plfn in values( s:bundle_load_files )
 	endif
 
 	function! s:bundle.hooks.on_post_source( bundle )
-		let cfgfile = GetConfigFilePath( "plugins" ,
+		let cfgfile = GetConfigFilePath( s:plugins_dir ,
 			\ a:bundle.name . ".cfg.vim" )
 		if l:cfgfile != ""
 			execute "source" l:cfgfile
