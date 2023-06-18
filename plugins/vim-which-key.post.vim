@@ -2,7 +2,6 @@
 nnoremap <silent> <Space> :<c-u>WhichKey '<Space>'<CR>
 let g:which_key_map = {}
 call which_key#register('<Space>', 'g:which_key_map')
-let g:which_key_fallback_to_native_key = 1
 
 " Direct commands
 let g:which_key_map[' '] = [ 'call feedkeys(":nohlsearch\n")' , 'clear-search' ]
