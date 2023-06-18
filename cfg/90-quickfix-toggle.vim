@@ -39,5 +39,9 @@ function! ToggleQuickfix(size, ...)
 	noautocmd silent! exec ''.l:winnr.'wincmd w'
 endfunc
 
+command! -bar QuickfixClose call ToggleQuickfix(0, 0)
+command! -bar QuickfixOpen call ToggleQuickfix(0, 1)
+command! -bar QuickfixToggle call ToggleQuickfix(0, 2)
+
 nmap <silent> <F12> :call ToggleQuickfix(0)<CR>
 nmap <silent> <Leader>q :call ToggleQuickfix(0)<CR>
