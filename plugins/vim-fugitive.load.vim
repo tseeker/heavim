@@ -1,3 +1,8 @@
+call dein#add('tpope/vim-fugitive', #{
+	\	lazy: 1,
+	\	on_cmd: [ 'Git', 'Gvdiffsplit', 'GMove', 'GRename', 'GRemove' ],
+	\ })
+
 " Fugitive commands that don't require interaction with GitGutter or NERDTree
 nnoremap <silent> <Leader>ga :Git add %:p<cr>
 nnoremap <silent> <Leader>gd :Gvdiffsplit<cr>
