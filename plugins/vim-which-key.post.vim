@@ -28,8 +28,9 @@ let g:which_key_map.p.i = 'open-file'
 
 " Git commands
 let g:which_key_map.g = { 'name' : '+git' }
+let g:which_key_map.g['*'] = 'hunk-preview'
 let g:which_key_map.g['+'] = 'add-hunk'
-let g:which_key_map.g['-'] = 'revert-hunk'
+let g:which_key_map.g['-'] = 'undo-hunk'
 let g:which_key_map.g['<'] = 'previous-hunk'
 let g:which_key_map.g['>'] = 'next-hunk'
 let g:which_key_map.g.a = 'add-file'
@@ -38,6 +39,7 @@ let g:which_key_map.g.B = 'new-branch'
 let g:which_key_map.g.C = 'checkout-branch'
 let g:which_key_map.g.c = 'commit'
 let g:which_key_map.g.d = 'diff'
+let g:which_key_map.g.q = 'show-hunks'
 let g:which_key_map.g.L = 'log-full'
 let g:which_key_map.g.l = 'log-split'
 let g:which_key_map.g.M = 'move'

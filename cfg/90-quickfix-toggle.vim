@@ -1,3 +1,6 @@
+" Toggle, open or close the quickfix window. The first argument is the size
+" (0 for automatic), and the second argument, if present, determines which
+" action to perform: 0 forces the window closed, 1 opens it, and 2 toggles it.
 function! ToggleQuickfix(size, ...)
 	let l:mode = (a:0 == 0)? 2 : (a:1)
 	function! s:WindowCheck(mode)
