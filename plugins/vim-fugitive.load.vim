@@ -1,6 +1,6 @@
 call dein#add('tpope/vim-fugitive', #{
 	\	lazy: 1,
-	\	on_cmd: [ 'Git', 'Gvdiffsplit', 'GMove', 'GRename', 'GRemove' ],
+	\	on_event: 'VimEnter',
 	\ })
 
 " Fugitive commands that don't require interaction with GitGutter or NERDTree
