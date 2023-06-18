@@ -1,6 +1,6 @@
 call dein#add('tpope/vim-fugitive', #{
 	\	lazy: 1,
-	\	on_event: 'VimEnter',
+	\	on_source: 'vim-airline',
 	\ })
 
 " Fugitive commands that don't require interaction with GitGutter or NERDTree
