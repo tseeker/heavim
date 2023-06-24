@@ -1,1 +1,0 @@
-NeoBundle 'hashivim/vim-terraform'
