@@ -17,3 +17,5 @@ let g:lsp_settings = {
 \     }
 \   },
 \}
+
+let g:lsp_settings['pylsp'] = g:lsp_settings['pylsp-all']
