@@ -1,1 +1,0 @@
-NeoBundle 'tikhomirov/vim-glsl'
