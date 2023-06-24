@@ -1,1 +1,0 @@
-NeoBundle 'rbong/vim-flog'
