@@ -1,9 +1,5 @@
 set hidden								" Don't close buffers
 
-" Buffer navigation
-nnoremap <silent> <S-Left> :bprev<CR>
-nnoremap <silent> <S-Right> :bnext<CR>
-
 " Close buffer
 function <SID>CloseCurrentBuffer( )
 	let btarget = bufnr( '%' )
@@ -42,4 +38,14 @@ function <SID>CloseCurrentBuffer( )
 	execute l:wcurrent . 'wincmd w'
 endfunction
 
+" Buffer navigation (Ctrl, Shift, Arrows...)
+nnoremap <silent> <S-Left> :bprev<CR>
+nnoremap <silent> <S-Right> :bnext<CR>
 nnoremap <silent> <C-S-Down> :call <SID>CloseCurrentBuffer()<CR>
+
+" Buffer navigation (Space sequences)
+nnoremap <silent> <Leader>bz :enew<CR>
+nnoremap <silent> <Leader>bq :bprev<CR>
+nnoremap <silent> <Leader>bd :bnext<CR>
+nnoremap <silent> <Leader>bw :call <SID>CloseCurrentBuffer()<CR>
+nnoremap <silent> <Leader>bW :bufdo call <SID>CloseCurrentBuffer()<CR>

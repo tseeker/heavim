@@ -20,6 +20,14 @@ let g:which_key_map.o.p = 'paste'
 let g:which_key_map.o.w = 'whitespace'
 let g:which_key_map.o.s = 'sign-column'
 
+" Buffers
+let g:which_key_map.b = { 'name' : '+buffers' }
+let g:which_key_map.b.W = 'close-all'
+let g:which_key_map.b.d = 'next'
+let g:which_key_map.b.q = 'previous'
+let g:which_key_map.b.w = 'close'
+let g:which_key_map.b.z = 'new'
+
 " Fuzzy finder
 let g:which_key_map.p = { 'name' : '+fuzzy-finder' }
 let g:which_key_map.p.p = 'buffers'
