@@ -1,1 +1,0 @@
-NeoBundle 'prabirshrestha/vim-lsp'

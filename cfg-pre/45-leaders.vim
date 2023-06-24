@@ -4,4 +4,3 @@
 
 let mapleader = ' '		" Space as leader character
 let maplocalleader = ','	" Comma as local leader character
-

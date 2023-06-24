@@ -1,1 +1,0 @@
-NeoBundle 'mbbill/undotree'

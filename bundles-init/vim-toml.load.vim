@@ -1,1 +1,0 @@
-NeoBundle 'cespare/vim-toml'

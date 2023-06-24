@@ -33,7 +33,7 @@ if exists( 'g:vim_vardata' )
 elseif $VIM_DATA != ""
 	let s:vim_vardata_base = $VIM_DATA
 else
-	let s:vim_vardata_base = $HOME . '/.vimdata'
+	let s:vim_vardata_base = $HOME . '/.cache/vim'
 endif
 
 " Remove trailing slash

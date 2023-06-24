@@ -3,7 +3,7 @@
 
 " If another runtime directory is specified, use it
 let s:own_path = expand( '<sfile>:p:h' )
-let $VIM_HOME = $VIM_HOME == '' ? '' 
+let $VIM_HOME = $VIM_HOME == '' ? ''
 	\ : fnamemodify( $VIM_HOME . '/x' , ':p:h' )
 
 if $VIM_HOME == '' || $VIM_HOME == s:own_path
