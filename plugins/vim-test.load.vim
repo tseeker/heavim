@@ -1,5 +1,10 @@
-" Run tests in the background, send results to the quickfix window
-let test#strategy = 'asyncrun_background'
+call dein#add('vim-test/vim-test', #{
+	\	lazy: 1,
+	\	on_cmd: [
+	\		'TestSuite', 'TestFile', 'TestNearest', 'TestLast',
+	\		'TestVisit', 'TestClass',
+	\	],
+	\ })
 
 " Shortcuts
 nmap <silent> <Leader>Ta :TestSuite<CR>
